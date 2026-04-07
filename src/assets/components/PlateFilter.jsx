@@ -12,8 +12,8 @@ function PlateFilter(props) {
 
   return (
     <>
-    <div className="flex bg-gray-100 w-100% h-10 items-center px-4">
-        <input className="rounded border border-gray-100 w-150 bg-white" type="text" placeholder="search" onChange={filter}/>
+    <div className="mx-auto flex w-full max-w-6xl items-center px-6 py-4">
+        <input className="w-full rounded-full border border-gray-200 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200" type="text" placeholder="Search plates" onChange={filter}/>
     </div>
         
     </>

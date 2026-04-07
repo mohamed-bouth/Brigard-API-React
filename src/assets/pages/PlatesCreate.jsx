@@ -1,15 +1,16 @@
 import React from 'react';
 import PlateForm from '../components/PlateForm'
 
-export default function PlatesCreate({addPlate , idCalcul , tableNextID}) {
-    
+export default function PlatesCreate() {
 
     return (
         <>
-            <div className='w-100% flex justify-start items-center bg-green-400 h-30 text-white'>
-                <h1 className='pl-10 text-4xl'>Plates</h1>
+            <div className='w-full bg-gradient-to-r from-emerald-600 via-green-500 to-lime-400 py-10 text-white'>
+                <div className='mx-auto flex max-w-6xl items-center px-6'>
+                    <h1 className='text-4xl font-semibold tracking-tight'>Create Plate</h1>
+                </div>
             </div>
-            <PlateForm addPlate={addPlate} idCalcul={idCalcul} tableNextID={tableNextID}/>
+            <PlateForm />
         </>
     );
 }
