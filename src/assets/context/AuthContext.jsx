@@ -88,7 +88,7 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function register({ name, email, password }) {
+  async function Register({ name, email, password }) {
     setAuthError("");
 
     try {
@@ -142,7 +142,7 @@ export function AuthProvider({ children }) {
         authLoading,
         authError,
         login,
-        register,
+        Register,
         logout,
       }}
     >
