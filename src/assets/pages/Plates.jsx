@@ -2,11 +2,10 @@ import React from 'react';
 import { useState } from 'react';
 import PlateFilter from '../components/PlateFilter';
 import PlateCard from '../components/PlateCard';
-import { useContext } from 'react';
-import { PlatesContext } from '../context/platesContext';
+import { usePlates } from '../hooks/usePlates';
 
 export default function Plates(){
-    const { plates, loading, error } = useContext(PlatesContext)
+    const { data: plates = [], isLoading, isError, error } = usePlates()
     const [search , setSearch] =  useState('')
     
 
@@ -25,11 +24,11 @@ export default function Plates(){
                 </div>
             </div>
             <PlateFilter filtredPlate={filtredPlate}/>
-            {loading && <h1 className='mx-auto my-10 max-w-6xl px-6 text-sm font-semibold text-gray-500'>Loading...</h1>}
-            {!loading && error && (
-                <h1 className='mx-auto my-10 max-w-6xl px-6 text-sm font-semibold text-red-600'>{error}</h1>
+            {isLoading && <h1 className='mx-auto my-10 max-w-6xl px-6 text-sm font-semibold text-gray-500'>Loading...</h1>}
+            {!isLoading && isError && (
+                <h1 className='mx-auto my-10 max-w-6xl px-6 text-sm font-semibold text-red-600'>{error.message}</h1>
             )}
-            {!loading && !error && (
+            {!isLoading && !isError && (
                 filtered.length === 0 ?
                 <h1 className='mx-auto my-10 max-w-6xl px-6 text-sm font-semibold text-gray-500'>No plates found</h1>
                 :
