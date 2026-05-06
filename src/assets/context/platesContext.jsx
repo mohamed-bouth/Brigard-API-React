@@ -56,19 +56,10 @@ export const PlatesProvider = ({ children }) => {
     };
   }, [token]);
 
-  function addPlate(plate) {
-    setPlates((prevPlates) => {
-      const maxId = prevPlates.reduce(
-        (acc, item) => Math.max(acc, Number(item.id) || 0),
-        0
-      );
-      const nextId = plate.id ?? maxId + 1;
-      return [...prevPlates, { ...plate, id: nextId }];
-    });
-  }
+
 
   return (
-    <PlatesContext.Provider value={{ plates, setPlates, loading, error, addPlate }}>
+    <PlatesContext.Provider value={{ plates, setPlates, loading, error }}>
       {children}
     </PlatesContext.Provider>
   );
